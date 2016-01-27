@@ -32,8 +32,27 @@ describe('hero',function(){
 
     assert.equal((startHealth + 20), ourHero.health);
   });
+  it('Should replenish 1.5x the normal replenishment value, if is favourite food', function(){
+    var cherries = new Food("Cherries", 20);
+    var ourHero = new Hero("pacman", 56, cherries);
 
+    var startHealth = ourHero.health;
 
+    ourHero.eat(cherries);
+
+    assert.equal(startHealth + 30, ourHero.health);
+  });
+  it('Should damage health by 60%  of the consumed poisoned foods hp', function(){
+    var fish = new Food("Fish", 50);
+    var ourHero = new Hero("Rick", 100, "burgers - not invented yet");
+    var rat = new Rat();
+    rat.touchFood(fish);
+    var startHealth = ourHero.health;
+    var expectValue = (ourHero.health - (fish.hp * 0.6)); 
+    ourHero.eat(fish);
+    assert.equal(expectValue, ourHero.health);
+
+  });
 });
 
 

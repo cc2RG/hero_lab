@@ -10,8 +10,14 @@ Hero.prototype = {
     return ("My name is "+ this.name);
   },
   eat: function(food){
-    this.health += (food.hp);
-  
+    if(food.poisoned){
+      this.health -= (food.hp * 0.6);
+    }else{
+      this.health += (food.hp);
+      if(this.favouriteFood == food){
+        this.health += (food.hp * 0.5);
+      }
+    }
   }
 }
 
