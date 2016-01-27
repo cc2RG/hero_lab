@@ -6,10 +6,17 @@ var chai = require('chai');
 var assert = chai.assert;
 
 describe('room', function(){
-  it('Should be have a number, have contents and have paths',function(){
-    var testRoom = new Room(34,[],[true,false,true,false]);
-    assert.equal(34, testRoom.number);
-    assert.deepEqual([], testRoom.contents);
-    assert.deepEqual([true,false,true,false], testRoom.paths);
+  it('Should be have a number, have contents',function(){
+    var testRoom = new Room();
+    testRoom.generateNumber();
+    assert.isNumber(testRoom.number);
+    
+    
   });
+  it('Should have at least 4 potential paths', function(){
+    var testRoom = new Room();
+    testRoom.generatePaths();
+    assert.equal(4, testRoom.paths.length);
+  });
+
 });
