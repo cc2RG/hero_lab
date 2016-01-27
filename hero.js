@@ -6,10 +6,15 @@ var Hero = function(name, health, favouriteFood ){
 
 Hero.prototype = {
   talk: function(){
-    console.log("My name is ",this.name);
+    console.log("My name is ", this.name);
+    return ("My name is "+ this.name);
+  },
+  eat: function(food){
+    this.health += (food.hp);
+  
   }
 }
 
-ourHero = new Hero("Yogle the fat bear", 100, "Pickanik baskets")
 
-ourHero.talk();
+
+module.exports = Hero;
