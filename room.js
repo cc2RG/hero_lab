@@ -27,13 +27,19 @@ generateLoot: function(){
   var checkNum = this.number;
   if(checkNum % 7 == 0){
     this.loot = true;
-}
+  }
   else{
     this.loot = false;
   }
 
 
-}
+},
+generateEnemies: function(){
+  var enemies = [];
+  var checkNum = this.number;
+  
+}  
+
 }    //rng to assign a number/letter combo to identify the room
 
   
